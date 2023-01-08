@@ -21,11 +21,11 @@ data:
     - source: /etc/backupSystem/config.yaml
 
    # FTP
-    - source: /tmp/vsftpd.conf
-    - source: /tmp/users_vsftpd.deny
+    - source: /etc/vsftpd.conf
+    - source: /etc/users_vsftpd.deny
 
     # HTTP
-    - source: /tmp/apache2
+    - source: /etc/apache2
 
     # nextcloud
     - source: /nextcloud
@@ -33,31 +33,31 @@ data:
       destination: nextcloud_data
 
     # DNS
-    - source: /tmp/bind
+    - source: /etc/bind
 
-    - source: /tmp/fstab
+    - source: /etc/fstab
 
-    - source: /tmp/crontab
+    - source: /etc/crontab
 
     # OTP
-    - source: /tmp/security/access-oath.conf
-    - source: /tmp/users.oath
-    - source: /tmp/pam.d/sshd
+    - source: /etc/security/access-oath.conf
+    - source: /etc/users.oath
+    - source: /etc/pam.d/sshd
     - source: /home/recovery_codes_OTP
 
     # groups and users
-    - source: /tmp/group
-    - source: /tmp/passwd
-    - source: /tmp/shadow
+    - source: /etc/group
+    - source: /etc/passwd
+    - source: /etc/shadow
 
     # Transmission
     - source: /home/transmission
-    - source: /tmp/transmission-daemon
+    - source: /etc/transmission-daemon
 
-    - source: /tmp/ssh
+    - source: /etc/ssh
 
     # let's encrypt
-    - source: /tmp/letsencrypt
+    - source: /etc/letsencrypt
 
     # ansible
-    - source: /tmp/ansible
+    - source: /etc/ansible
