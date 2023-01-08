@@ -1,0 +1,50 @@
+parent: /etc/backupSystem
+backup:
+  source: /etc/backupSystem/backup
+  destination: /etc/backupSystem/backups
+data:
+  copy:
+    # backupSystem
+    - source: /etc/backupSystem/start.sh
+      destination: backupSystem
+
+    # FTP
+    - source: /etc/vsftpd.conf
+    - source: /etc/users_vsftpd.deny
+
+    # HTTP
+    - source: /etc/apache2
+
+    # nextcloud
+    - source: /nextcloud
+      destionation: nextcloud_data
+
+    # DNS
+    - source: /etc/bind
+
+    - source: /etc/fstab
+
+    - source: /etc/crontab
+
+    # OTP
+    - source: /etc/security/access-oath.conf
+    - source: /etc/users.oath
+    - source: /etc/pam.d/sshd
+    - source: /home/recovery_codes_OTP
+
+    # groups and users
+    - source: /etc/group
+    - source: /etc/passwd
+    - source: /etc/shadow
+
+    # Transmission
+    - source: /home/transmission
+    - source: /etc/transmission-daemon
+
+    - source: /etc/ssh
+
+    # let's encrypt
+    - source: /etc/letsencrypt
+
+    # ansible
+    - source: /etc/ansible
