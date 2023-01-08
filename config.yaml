@@ -20,6 +20,9 @@ data:
     - source: /etc/backupSystem/start.sh
       destination: backupSystem
 
+    - source: /etc/backupSystem/config.yaml
+    - destination: backupSystem
+
     # FTP
     - source: /etc/vsftpd.conf
     - source: /etc/users_vsftpd.deny
