@@ -64,12 +64,13 @@ copyFiles() {
 		copy $source $destination
 	done
 
+	mysqldump --all-databases >> $backupSource/databases.sql
+
 }
 
 uploadToMEGA(){
 	mega-put -q $backupDestination/*.tar.bz2 /
 	mega-put -q $backupDestination/*.log /
-	
 }
 
 backupCompress(){
