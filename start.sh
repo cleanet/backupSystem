@@ -71,7 +71,7 @@ uploadToMEGA(){
 	mega-put -q $backupDestination/*.log /
 	
 }
-i
+
 backupCompress(){
         rm -rf $backupDestination/*
 
