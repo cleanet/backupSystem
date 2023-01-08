@@ -14,7 +14,7 @@
 
 # syntax: readYaml <path> <quotes:boolean>
 readYaml() {
-	output=`yq $1 /etc/backupSystem/config.yaml`
+	output=`yq $1 $BACKUPSYSTEM_PATH/config.yaml`
 	if [ $2 -eq 1 ];then
 		output=`echo "$output" | sed "s|\"||g"`
 		echo "$output"
@@ -23,9 +23,9 @@ readYaml() {
 	fi
 }
 
-parent=`readYaml .parent 1`
-backupSource=`readYaml .backup.source 1`
-backupDestination=`readYaml .backup.destination 1`
+parent=$BACKUPSYSTEM_PATH
+backupSource=${BACKUPSYSTEM_PATH}/`readYaml .backup.source 1`
+backupDestination=${BACKUPSYSTEM_PATH}/`readYaml .backup.destination 1`
 date=`date "+%d-%m-%Y"`
 
 echo "======================================"
@@ -61,7 +61,7 @@ copyFiles() {
 	do
 		source=`readYaml ".data.copy[$index].source" 1`
 		destination=`readYaml ".data.copy[$index].destination" 1 | sed "s|null||g"`
-		copy $source $destination
+		copy $source ${destination}
 	done
 
 	mysqldump --all-databases >> $backupSource/databases.sql

@@ -10,56 +10,54 @@
 #
 # This script file is used for install the service client in Windows
 # 
-parent: /etc/backupSystem
 backup:
-  source: /etc/backupSystem/backup
-  destination: /etc/backupSystem/backups
+  source: backup
+  destination: backups
 data:
   copy:
     # backupSystem
     - source: /etc/backupSystem/start.sh
-      destination: backupSystem
 
     - source: /etc/backupSystem/config.yaml
-    - destination: backupSystem
 
-    # FTP
-    - source: /etc/vsftpd.conf
-    - source: /etc/users_vsftpd.deny
+   # FTP
+    - source: /tmp/vsftpd.conf
+    - source: /tmp/users_vsftpd.deny
 
     # HTTP
-    - source: /etc/apache2
+    - source: /tmp/apache2
 
     # nextcloud
     - source: /nextcloud
-      destionation: nextcloud_data
+    - source: /home/nextcloud
+      destination: nextcloud_data
 
     # DNS
-    - source: /etc/bind
+    - source: /tmp/bind
 
-    - source: /etc/fstab
+    - source: /tmp/fstab
 
-    - source: /etc/crontab
+    - source: /tmp/crontab
 
     # OTP
-    - source: /etc/security/access-oath.conf
-    - source: /etc/users.oath
-    - source: /etc/pam.d/sshd
+    - source: /tmp/security/access-oath.conf
+    - source: /tmp/users.oath
+    - source: /tmp/pam.d/sshd
     - source: /home/recovery_codes_OTP
 
     # groups and users
-    - source: /etc/group
-    - source: /etc/passwd
-    - source: /etc/shadow
+    - source: /tmp/group
+    - source: /tmp/passwd
+    - source: /tmp/shadow
 
     # Transmission
     - source: /home/transmission
-    - source: /etc/transmission-daemon
+    - source: /tmp/transmission-daemon
 
-    - source: /etc/ssh
+    - source: /tmp/ssh
 
     # let's encrypt
-    - source: /etc/letsencrypt
+    - source: /tmp/letsencrypt
 
     # ansible
-    - source: /etc/ansible
+    - source: /tmp/ansible
