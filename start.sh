@@ -1,4 +1,16 @@
 #!/bin/sh
+# author: cleanet
+# cleannet29@gmail.com
+#
+# Licensed by GNU GENERAL PUBLIC LICENSE VERSION 3
+# This file is part of backupSystem
+# backupSystem is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+# backupSystem is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License along with ClassAdmin. If not, see <https://www.gnu.org/licenses/>.
+# Copyright 2023 cleanet
+#
+# This script file is responsible of generate a backup of all data specified by its YAML configuration file.
+#
 
 # syntax: readYaml <path> <quotes:boolean>
 readYaml() {
@@ -59,7 +71,7 @@ uploadToMEGA(){
 	mega-put -q $backupDestination/*.log /
 	
 }
-
+i
 backupCompress(){
         rm -rf $backupDestination/*
 
