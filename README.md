@@ -1,5 +1,6 @@
-/bin/bash: [[Pasted: command not found
-duction](https://github.com/cleanet/backupSystem#introduction)
+![[Pasted image 20230108163434.png]]
+
+[Introduction](https://github.com/cleanet/backupSystem#introduction)
 [files distribution](https://github.com/cleanet/backupSystem#how_it_works)
 [Implementation and configuration](https://github.com/cleanet/backupSystem#implementation_configuration)
 [License](https://github.com/cleanet/backupSystem#license)
@@ -34,6 +35,18 @@ The `/etc/environment` file is for create the environment file permanently. And 
 
 In the YAML configuration file `config.yaml`,  you must be edit the keys under of the comment `# backupSystem` by the environment variable value `BACKUPSYSTEM_PATH`. The value must be the same.
 ![[Pasted image 20230108181752.png]]
+
+### MEGA commad
+For configure the mega command you must login you in you mega account:
+```
+mega-login <email> <password>
+```
+
+After run again the command `mega-login`, if you are logged, this will show
+```
+[API:err: 18:17:02] Already logged in. Please log out first.
+```
+This is permanent, this process isn't necessary for use the main script `start.sh`
 
 ### YAML configuration file
 ```
@@ -97,6 +110,8 @@ And you will ask you, Where come the path `/etc/backupSystem/backup/` ? This pat
 Here there are two objects. The first object, copy the path `/nextcloud` to `/etc/backupSystem/backups/`. In `/etc/backupSystem/backups/` would generate this path `/etc/backupSystem/backups/nextcloud`
 
 In the second object, copy the path `/home/nextcloud` to `/etc/backupSystem/backups/`. In `/etc/backupSystem/backups/` would generate the path `/etc/backupSystem/backups/nextcloud`, but as this object has the key `destination`, this would generate `/etc/backupSystem/backups/nextcloud_data`. For not overwrite the path `/etc/backupSystem/backups/nextcloud` already existing. So we can store the two data.
+
+So in the main script in the function `copyFiles()` after of  'for loop', I added the command `mysqldump --all-databases >> $backupSource/databases.sql` for do a backup of databases
 
 ## License
 This project is licensed by the GPLv3 (GNU Public License version 3)
