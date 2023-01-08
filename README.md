@@ -1,4 +1,4 @@
-![[Pasted image 20230108163434.png]]
+![wallpaper](https://github.com/cleanet/backupSystem/blob/master/screenshots/wallpaper.png)
 
 [Introduction](https://github.com/cleanet/backupSystem#introduction)
 [files distribution](https://github.com/cleanet/backupSystem#how_it_works)
@@ -34,7 +34,7 @@ We go to create it:
 The `/etc/environment` file is for create the environment file permanently. And the `export` command for create it right now.
 
 In the YAML configuration file `config.yaml`,  you must be edit the keys under of the comment `# backupSystem` by the environment variable value `BACKUPSYSTEM_PATH`. The value must be the same.
-![[Pasted image 20230108181752.png]]
+![backup](https://github.com/cleanet/backupSystem/blob/master/screenshots/backup.png)
 
 ### MEGA commad
 For configure the mega command you must login you in you mega account:
